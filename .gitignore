@@ -1,0 +1,70 @@
+# Python related
+*.pyc
+*.pyo
+__pycache__/
+*.pyd
+*.pdb
+*.so
+*.egg
+*.egg-info/
+.eggs/
+
+# Virtual environment
+.env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment variables
+.env
+
+# Streamlit specific
+.streamlit/secrets.toml
+
+# Log files
+*.log
+*.out
+*.log.*
+
+# Unit test and coverage
+coverage/
+.tox/
+.cache/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# PyCharm IDE
+.idea/
+
+# VS Code IDE
+.vscode/
+
+# macOS files
+.DS_Store
+
+# Backup files
+*~
+*.swp
+
+# Distribution / Packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+.installed.cfg
+lib/
+lib64/
+parts/
+sdist/
+var/
+
+# Temporary files
+*.temp
+*.tmp
