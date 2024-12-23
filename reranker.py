@@ -46,7 +46,7 @@ class ReRanker():
         Load data from json files
         """
         # Load documents
-        docs_file = open('docs.json')
+        docs_file = open('dataset/docs.json')
         data = json.load(docs_file)
         self.docs = data['docs']
 
