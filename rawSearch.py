@@ -101,7 +101,11 @@ class TFIDF():
             # Loop through all words in the query
             for word in q.split(' '):
                 word = word.lower()
-                score += self.tf_idf_list[word][i] / self.ds[i]
+                # print("word:", word)
+                # print(len(self.ds))
+                # print(self.tf_idf_list[word])
+                # print(self.ds)
+                score += self.tf_idf_list[word][str(i)] / self.ds[str(i)]
             # Update document score
             results.append((score, i))
         
