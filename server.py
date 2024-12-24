@@ -7,24 +7,27 @@ tf_idf = TFIDF()
 
 @app.route('/api/search', methods=['POST'])
 def handle_query():
-    data = request.get_json()
-    query = data.get('query')
+    try:
+        data = request.get_json()
+        query = data.get('query')
 
-    if not query:
-        return jsonify({'error': 'No query provided'}), 400
+        if not query:
+            return jsonify({'error': 'No query provided'}), 400
 
-    # Example response based on the query
-    clean_query = process_query(query)
+        # Example response based on the query
+        clean_query = process_query(query)
 
-    # Search using TF-IDF
-    filtered_results = tf_idf.search(clean_query, 10)
+        # Search using TF-IDF
+        filtered_results = tf_idf.search(clean_query, 10)
 
-    # Re-rank using AI 
-    re_ranker = ReRanker()
+        # Re-rank using AI 
+        re_ranker = ReRanker()
+        scores = re_ranker.rank(query, filtered_results)
 
-    scores = re_ranker.rank(query, filtered_results)
-
-    return jsonify({'response': scores})
+        return jsonify({'response': scores}), 200
+    except Exception as e:
+        print(e)
+        return jsonify({'error': str(e)}), 500
 
 def process_query(query):
     return query
