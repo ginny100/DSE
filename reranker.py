@@ -31,7 +31,7 @@ def get_embedding(item: str) -> torch.Tensor:
     summed_embeddings = torch.sum(masked_embeddings, 1)
     counted = torch.clamp(mask.sum(1), min=1e-9)
     mean_pooled = summed_embeddings / counted
-    print('mean_pooled shape:', mean_pooled.shape)
+    # print('mean_pooled shape:', mean_pooled.shape)
     return mean_pooled.detach().numpy()
 
 class ReRanker():
@@ -73,8 +73,8 @@ class ReRanker():
         
         # Search for vector similarity with query
         scores, retrieved_examples = dataset_embedding.get_nearest_examples('embeddings', query_embedding, k=10)
-        print('scores:', scores)
-        print('retrieved_examples:', retrieved_examples)
+        # print('scores:', scores)
+        # print('retrieved_examples:', retrieved_examples)
         
         # Sort retrieved examples by scores in descending order
         examples_df = pd.DataFrame.from_dict(retrieved_examples)
@@ -84,7 +84,7 @@ class ReRanker():
         # Get the results
         results = []
         for _, row in examples_df.iterrows():
-            print(row['scores'], row['text'])
+            # print(row['scores'], row['text'])
             results.append({
                 'id': row['id'],
                 'text': row['text'],
