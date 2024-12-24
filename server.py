@@ -10,6 +10,7 @@ def handle_query():
     try:
         data = request.get_json()
         query = data.get('query')
+        print(query)
 
         if not query:
             return jsonify({'error': 'No query provided'}), 400
@@ -26,7 +27,7 @@ def handle_query():
 
         return jsonify({'response': scores}), 200
     except Exception as e:
-        print(e)
+        print("Error:", e)
         return jsonify({'error': str(e)}), 500
 
 def process_query(query):
