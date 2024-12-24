@@ -15,7 +15,7 @@ pip install -r requirements.txt
 ### Run server
 
 ```
-python serve.py
+python server.py
 ```
 
 ### Test API
