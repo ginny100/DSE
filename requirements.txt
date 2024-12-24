@@ -1,5 +1,6 @@
 faiss-cpu
-Flask
+flask
 torch
 datasets
 transformers
+numpy
